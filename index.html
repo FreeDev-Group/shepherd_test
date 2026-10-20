@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shepherd.js Tour Demo</title>
+
+    <!-- Shepherd.js CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/css/shepherd.css"
+    />
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Sidebar Menu -->
+    <aside class="sidebar" id="sidebar">
+      <h2 class="logo">MyApp</h2>
+      <nav class="nav-links">
+        <a href="#section1" id="nav-section1" class="nav-item">Dashboard</a>
+        <a href="#section2" id="nav-section2" class="nav-item">Analytics</a>
+        <a href="#section3" id="nav-section3" class="nav-item">Settings</a>
+      </nav>
+      <button id="start-tour-btn" class="btn btn-tour">
+        Start Guided Tour
+      </button>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Section 1 -->
+      <section id="section1" class="content-card">
+        <h2>1. Dashboard Overview</h2>
+        <p>
+          Welcome to your central hub. Monitor key metrics and platform activity
+          here.
+        </p>
+        <button id="btn-sec1" class="btn btn-primary">Explore Dashboard</button>
+      </section>
+
+      <!-- Section 2 -->
+      <section id="section2" class="content-card">
+        <h2>2. Performance Analytics</h2>
+        <p>
+          Track real-time growth, conversion rates, and user engagement graphs.
+        </p>
+        <button id="btn-sec2" class="btn btn-primary">View Reports</button>
+      </section>
+
+      <!-- Section 3 -->
+      <section id="section3" class="content-card">
+        <h2>3. Account Settings</h2>
+        <p>
+          Manage your account preferences, billing details, and integrations.
+        </p>
+        <button id="btn-sec3" class="btn btn-primary">Update Settings</button>
+      </section>
+
+      <!-- Footer -->
+      <footer id="footer" class="site-footer">
+        <p>&copy; 2026 MyApp Inc. Built with Shepherd.js.</p>
+      </footer>
+    </main>
+
+    <!-- Shepherd.js JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/shepherd.js@10.0.1/dist/js/shepherd.min.js"></script>
+
+    <!-- Custom Script -->
+    <script src="script.js"></script>
+  </body>
+</html>
