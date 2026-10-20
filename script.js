@@ -108,16 +108,36 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         text: "Finish",
-        action: tour.complete,
+        action: () => {
+          // Mark tour as completed in storage so it doesn't auto-start again
+          localStorage.setItem("hasCompletedTour", "true");
+          tour.complete();
+        },
       },
     ],
   });
 
-  // 3. Attach Click Listener to Tour Launch Button
+  // Also handle if the user clicks the 'X' (cancel) icon
+  tour.on("cancel", () => {
+    localStorage.setItem("hasCompletedTour", "true");
+  });
+
+  // 3. Attach Click Listener to Manual Tour Launch Button
   const startBtn = document.getElementById("start-tour-btn");
   if (startBtn) {
     startBtn.addEventListener("click", () => {
+      // Clear storage flag if they manually click to force the tour to run
+      localStorage.removeItem("hasCompletedTour");
       tour.start();
     });
+  }
+
+  // 4. Auto-Start Tour on Page Load / Refresh (If not completed before)
+  const hasCompletedTour = localStorage.getItem("hasCompletedTour");
+  if (!hasCompletedTour) {
+    // Optional: Add a short timeout (e.g., 500ms) to ensure DOM elements are fully painted before targeting
+    setTimeout(() => {
+      tour.start();
+    }, 500);
   }
 });
